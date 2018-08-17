@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>charles mac版 &amp;&amp; 手机抓包 | 忆川</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="charles mac版手机抓包 官网 安装设置 手机抓包设置 抓包分析 overview  request response   高级功能 禁止缓存 禁止cookie 远程映射 设置 查看远程映射记录 远程映射非常有用     断点 重要作用 设置 使用示例，request修改cookie   https抓包 其它功能  官网   http://www.charlesproxy.com 安装设置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="charles mac版 &amp;&amp; 手机抓包">
+<meta property="og:url" content="nisheng.github.com/2018/05/26/charles教程/index.html">
+<meta property="og:site_name" content="忆川">
+<meta property="og:description" content="charles mac版手机抓包 官网 安装设置 手机抓包设置 抓包分析 overview  request response   高级功能 禁止缓存 禁止cookie 远程映射 设置 查看远程映射记录 远程映射非常有用     断点 重要作用 设置 使用示例，request修改cookie   https抓包 其它功能  官网   http://www.charlesproxy.com 安装设置">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://wd.geilicdn.com/5302846b55bfdd37e50cdffa911baaa1.png">
+<meta property="og:image" content="http://wd.geilicdn.com/9c9a8999f37e0dcb1a693b055072d8c3.jpg">
+<meta property="og:image" content="http://wd.geilicdn.com/7329b383030de145c512450f811debb3.jpg">
+<meta property="og:image" content="http://wd.geilicdn.com/64c8e8965e4447ba28a330681b555a46.png">
+<meta property="og:image" content="http://wd.geilicdn.com/733cc67d3051e3131cba5b6e2ec4c612.png">
+<meta property="og:image" content="http://wd.geilicdn.com/b30ed7940330a550e41ad8388f1d5cf5.png">
+<meta property="og:image" content="http://wd.geilicdn.com/856ec0ae20c2b094aa395db9557e1d2b.png">
+<meta property="og:image" content="http://wd.geilicdn.com/31f24d8896fa3f1a11fc83a2fc370c94.png">
+<meta property="og:image" content="http://wd.geilicdn.com/01ea3a51a2c2c6700c8749385517af81.png">
+<meta property="og:image" content="http://wd.geilicdn.com/e175b11d19b9ae5ee59f34ffd5aa0033.png">
+<meta property="og:image" content="http://wd.geilicdn.com/50abc28165e013d235082fbb371d0a7a.png">
+<meta property="og:image" content="http://wd.geilicdn.com/6924af6c2d76434da988fa87affe9091.png">
+<meta property="og:image" content="http://wd.geilicdn.com/18442d24d541f6ed726390c7a158858f.png">
+<meta property="og:image" content="http://wd.geilicdn.com/e7c746b7706f4562b93e03af1ce44466.png">
+<meta property="og:image" content="http://wd.geilicdn.com/a1fcbe29b318a336e375d1aaebf7b532.png">
+<meta property="og:image" content="http://wd.geilicdn.com/7b32fed2da0e1d7ea98147723f49e836.png">
+<meta property="og:image" content="http://wd.geilicdn.com/8a25a083a37f01d1d5aad8072e9b4730.png">
+<meta property="og:image" content="http://wd.geilicdn.com/8a616e0a06d8d8d4c8e15d6d3c64473f.png">
+<meta property="og:image" content="http://wd.geilicdn.com/e3a32017eec58f3fa3c1dbf9b5881c72.png">
+<meta property="og:image" content="http://wd.geilicdn.com/8bc7865f869f2a5395692b01fddde9f4.png">
+<meta property="og:image" content="http://wd.geilicdn.com/9c0cf311cdb5763706498f448f59854a.png">
+<meta property="og:image" content="http://wd.geilicdn.com/81aa4272d837b2b5089093ee37107feb.png">
+<meta property="og:image" content="http://wd.geilicdn.com/66198466e8ade7ef662f74191c3b6d17.png">
+<meta property="og:image" content="http://wd.geilicdn.com/624f14bf20f84527c77ca7dbc164bb9a.png">
+<meta property="og:updated_time" content="2018-08-17T03:39:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="charles mac版 &amp;&amp; 手机抓包">
+<meta name="twitter:description" content="charles mac版手机抓包 官网 安装设置 手机抓包设置 抓包分析 overview  request response   高级功能 禁止缓存 禁止cookie 远程映射 设置 查看远程映射记录 远程映射非常有用     断点 重要作用 设置 使用示例，request修改cookie   https抓包 其它功能  官网   http://www.charlesproxy.com 安装设置">
+<meta name="twitter:image" content="http://wd.geilicdn.com/5302846b55bfdd37e50cdffa911baaa1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="忆川" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">忆川</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="nisheng.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-charles教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/26/charles教程/" class="article-date">
+  <time datetime="2018-05-26T05:08:31.000Z" itemprop="datePublished">2018-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      charles mac版 &amp;&amp; 手机抓包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="charles-mac版手机抓包"><a href="#charles-mac版手机抓包" class="headerlink" title="charles mac版手机抓包"></a>charles mac版手机抓包</h2><ul>
+<li><a href="#官网">官网</a></li>
+<li><a href="#安装设置">安装设置</a></li>
+<li><a href="#链接设置">手机抓包设置</a></li>
+<li><a href="#抓包分析">抓包分析</a><ul>
+<li><a href="#overview">overview</a> </li>
+<li><a href="#request">request</a></li>
+<li><a href="#response">response</a></li>
+</ul>
+</li>
+<li><a href="#高级功能">高级功能</a><ul>
+<li><a href="#禁止缓存">禁止缓存</a></li>
+<li><a href="#禁止cookie">禁止cookie</a></li>
+<li><a href="#远程映射">远程映射</a><ul>
+<li><a href="#远程映射">设置</a></li>
+<li><a href="#查看远程映射记录">查看远程映射记录</a></li>
+<li><a href="#远程映射非常有用">远程映射非常有用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#断点">断点</a><ul>
+<li><a href="#重要作用">重要作用</a></li>
+<li><a href="#设置">设置</a></li>
+<li><a href="#使用示例，request修改cookie">使用示例，request修改cookie</a></li>
+</ul>
+</li>
+<li><a href="#https抓包">https抓包</a></li>
+<li><a href="#其它功能">其它功能</a></li>
+</ul>
+<h3 id="官网">官网</h3>
+
+<p> <a href="http://www.charlesproxy.com" target="_blank" rel="noopener">http://www.charlesproxy.com</a></p>
+<h3 id="安装设置">安装设置</h3>
+
+<p> mac按提示安装</p>
+<p> 安装完成后需要给charles权限,如果没有给予权限，charles无法抓包。</p>
+<p> 点击proxy-&gt;MAC OS X proxy</p>
+<p><img src="http://wd.geilicdn.com/5302846b55bfdd37e50cdffa911baaa1.png" style="max-width:100%;width:550px;"></p>
+<h3 id="链接设置">链接设置</h3>
+
+<p><img src="http://wd.geilicdn.com/9c9a8999f37e0dcb1a693b055072d8c3.jpg" style="max-width:100%;width:350px;"></p>
+<p> ifconfig 找到电脑ip 服务器填电脑ip 端口默认8888（下图）</p>
+<p><img src="http://wd.geilicdn.com/7329b383030de145c512450f811debb3.jpg" style="max-width:100%;width:350px;"></p>
+<p> 此时charles会自动弹出对话问是否允许通过chales代理访问。点击allow。如果想默认允许任何用户访问， 打开 面包Setting-&gt;Access Control Settings面板，点击add按钮 增加 &lt;0.0.0.0&gt;/0，以后就不会有该对话了。</p>
+<h3 id="抓包分析">抓包分析</h3>
+
+<h4 id="overview">overview</h4>
+
+<p><img src="http://wd.geilicdn.com/64c8e8965e4447ba28a330681b555a46.png" style="max-width:100%"></p>
+<p> （上图）包含了请求一些基本信息，如地址，请求方式、内容类型、耗时等等</p>
+<h4 id="request">request</h4>
+
+<p><img src="http://wd.geilicdn.com/733cc67d3051e3131cba5b6e2ec4c612.png" style="max-width:100%"></p>
+<p> (上图) 上图包含的信息非常重要， 说明此处http请求有多少数据发给服务端，如常用的cookie信息和user-agent（浏览器表示）信息</p>
+<p> Query string 、 Cookies 和 Raw tab为格式化信息，方便查看（下图）</p>
+<p><img src="http://wd.geilicdn.com/b30ed7940330a550e41ad8388f1d5cf5.png" style="max-width:100%"></p>
+<p> 双击后可以复制里面信息，不可编辑（如下图）</p>
+<p><img src="http://wd.geilicdn.com/856ec0ae20c2b094aa395db9557e1d2b.png" style="max-width:100%"></p>
+<h4 id="response">response</h4>
+
+<p> 可以看到非常详细返回信息,Set-cookie,表明本次请求服务端设置了哪些cookie（双击后可复制不可编辑）</p>
+<p><img src="http://wd.geilicdn.com/31f24d8896fa3f1a11fc83a2fc370c94.png"></p>
+<p> Summary、Chart、Notes等是请求耗时解析，建议在chrome浏览器查看，更加详细和一目了然（以下chrome截图）</p>
+<p><img src="http://wd.geilicdn.com/01ea3a51a2c2c6700c8749385517af81.png" style="max-width:100%"></p>
+<blockquote>
+<p>Queueing 浏览器有连接限制，当网页资源很多时就会出现排队的现象，排队的资源要等到上一个资源加载完毕释放后才能开始请求。比关键资源（如javascript与css）低优先级的请求会被浏览器推迟，一般推迟的都是图片。在许多资源同时发起请求时浏览器默认先加载css,然后javascript，最后才是图片。</p>
+</blockquote>
+<blockquote>
+<p>Stalled 浏览器得到要发出这个请求的指令，到请求可以发出的等待时间，一般是代理协商、以及等待可复用的TCP连接释放的时间，不包括DNS查询、建立TCP连接等时间等</p>
+</blockquote>
+<blockquote>
+<p>Request sent 请求第一个字节发出前到最后一个字节发出后的时间，也就是上传时间</p>
+</blockquote>
+<blockquote>
+<p>Waiting 请求发出完成后，到收到响应的第一个字节所花费的时间(Time To First Byte)，即响应时间</p>
+</blockquote>
+<blockquote>
+<p>Content Download 收到响应的第一个字节，到接受完最后一个字节的时间，就是下载时间</p>
+</blockquote>
+<h3 id="高级功能">高级功能</h3>
+
+<h4 id="禁止缓存">禁止缓存</h4>
+
+<p><img src="http://wd.geilicdn.com/e175b11d19b9ae5ee59f34ffd5aa0033.png"></p>
+<h4 id="禁止cookie">禁止cookie</h4>
+
+<p><img src="http://wd.geilicdn.com/50abc28165e013d235082fbb371d0a7a.png"></p>
+<h4 id="远程映射">远程映射</h4>
+
+
+
+<p> 选中一个请求-》右键-》Map Remote(下图) 弹出（下图2）</p>
+<p><img src="http://wd.geilicdn.com/6924af6c2d76434da988fa87affe9091.png" style="max-width:100%;"></p>
+<p><img src="http://wd.geilicdn.com/18442d24d541f6ed726390c7a158858f.png" style="max-width:100%;"></p>
+<p> 如果请求的参数有随机数，一定要将参数设置为通配符（**），否者下次请求的时候讲无法配对，导致映射失败。</p>
+<h4 id="查看远程映射记录">查看远程映射记录</h4>
+
+<p> 电脑菜单栏tools-》Map Remote</p>
+<p><img src="http://wd.geilicdn.com/e7c746b7706f4562b93e03af1ce44466.png"></p>
+<p>​    弹出下图</p>
+<p><img src="http://wd.geilicdn.com/a1fcbe29b318a336e375d1aaebf7b532.png" style="max-width:100%;"></p>
+<h4 id="远程映射非常有用">远程映射非常有用</h4>
+
+<p> 其作用是可以将一个地址代理成其他地址，开发和测试的通过这种方式使用线上app来进行调试和开发，无需繁琐的后台配置。</p>
+<p> 或者通过这种方式修改api数据，调试线上js bug 等等。</p>
+<h3 id="断点">断点</h3>
+
+<h4 id="重要作用">重要作用</h4>
+
+<p> 修改请求或者返回的header信息，包括cookie，修改请求的参数，修改返回的内容</p>
+<h4 id="设置">设置</h4> 
+
+<p> 右键点击请求，选择BreakPoints，刷新页面后碰到这个请求后断点生效。（如下图）</p>
+<p><img src="http://wd.geilicdn.com/7b32fed2da0e1d7ea98147723f49e836.png" style="max-width:100%;"></p>
+<p> 此时会在request和response进行两次打断，</p>
+<p> 如果只需要打断一次可以对面板进行设置</p>
+<p> 点击电脑菜单栏Proxy-》Breakpoints Settings （如下图）</p>
+<p><img src="http://wd.geilicdn.com/8a25a083a37f01d1d5aad8072e9b4730.png" style="max-width:100%;"></p>
+<p> 弹出下图</p>
+<p><img src="http://wd.geilicdn.com/8a616e0a06d8d8d4c8e15d6d3c64473f.png" style="max-width:100%;"></p>
+<p> 双击列表数据进入编辑模式（如下图）</p>
+<p><img src="http://wd.geilicdn.com/e3a32017eec58f3fa3c1dbf9b5881c72.png" style="max-width:100%;"></p>
+<p> 如果只选择了request，那么只会在发送请求的时候打断</p>
+<p> 如果只选择了response， 那么只会在返回的时候打断</p>
+<p> 如果都选，打断两次</p>
+<h4 id="使用示例，request修改cookie">使用示例，request修改cookie</h4>
+
+<p><img src="http://wd.geilicdn.com/8bc7865f869f2a5395692b01fddde9f4.png" style="max-width:100%;"></p>
+<h4 id="https抓包">https抓包</h4>
+
+<p>​     step1：打开charles，选择菜单“Help” =&gt; “SSL Proxying” =&gt; “Install Charles Root Certificate”，安装根证书（如果是在手机上，请选择 Install Charles Root Certificate on a Mobile Device or Remote Browser…，在手机上安装根证书)        </p>
+<p><img src="http://wd.geilicdn.com/9c0cf311cdb5763706498f448f59854a.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step2：打开钥匙串访问，找到 “Charles Proxy Custom Root Certificate证书”，系统默认提示“此证书已标记为不受此账户信任”</p>
+<p><img src="http://wd.geilicdn.com/81aa4272d837b2b5089093ee37107feb.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step3：选择“Charles Proxy Custom Root Certificate证书”，点击右键 =&gt;显示简介 =&gt; 点击“信任”，设置信任该证书；</p>
+<p><img src="http://wd.geilicdn.com/66198466e8ade7ef662f74191c3b6d17.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step4：在charles菜单中选择”Proxy” =&gt; “SSL Proxying”，勾选“Enable SSL Proxying”，添加白名单域名列表</p>
+<p><img src="http://wd.geilicdn.com/624f14bf20f84527c77ca7dbc164bb9a.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<h4 id="其它功能">其它功能</h4>
+
+<p> 网速限制，本地映射，需要大家去摸索。</p>
+<p>end</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/05/26/charles教程/" data-id="cjkxg643e0000v7linphrp2g6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/05/发布-订阅-观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          发布-订阅 观察者模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/10/26/webpack解惑篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">webpack解惑篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/代码/" style="font-size: 20px;">代码</a> <a href="/tags/观察者模式的两种实现方式/" style="font-size: 10px;">观察者模式的两种实现方式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/10/前端json生成excel/">js生成excel并导出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/js小代码/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/原型链/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/发布-订阅-观察者模式/">发布-订阅 观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/charles教程/">charles mac版 &amp;&amp; 手机抓包</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 倪胜<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

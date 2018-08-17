@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>忆川</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="忆川">
+<meta property="og:url" content="nisheng.github.com/index.html">
+<meta property="og:site_name" content="忆川">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="忆川">
+  
+    <link rel="alternate" href="/atom.xml" title="忆川" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">忆川</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="nisheng.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="[layout]-前端json生成excel" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/10/前端json生成excel/" class="article-date">
+  <time datetime="2018-08-10T06:29:00.000Z" itemprop="datePublished">2018-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/10/前端json生成excel/">js生成excel并导出</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>代码<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot;</span><br><span class="line">          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    JSONToExcelConvertor(</span><br><span class="line">        [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;id&quot;: 13148,</span><br><span class="line">            &quot;companyName&quot;: &quot;厦门指掌天下文化传媒有限公司1&quot;,</span><br><span class="line">            &quot;contactName&quot;: &quot;龙少&quot;,</span><br><span class="line">            &quot;contactMail&quot;: &quot;1234567890@qq.com&quot;,</span><br><span class="line">            &quot;contactTel&quot;: &quot;13152521217&quot;,</span><br><span class="line">            &quot;contactQQ&quot;: &quot;123456789&quot;,</span><br><span class="line">            &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">            &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">            &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">            &quot;opUserId&quot;: 13426</span><br><span class="line">        &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13248,</span><br><span class="line">                &quot;companyName&quot;: &quot;中华万年历-男性补肾&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;谭经理&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;3337056311@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;15173195628&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;3337056311&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13249,</span><br><span class="line">                &quot;companyName&quot;: &quot;全民夺旗&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;卓泽坚&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;zhuozj@pv.cc&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13760847644&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;13760847644&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.25&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13261,</span><br><span class="line">                &quot;companyName&quot;: &quot;互动营销减肥户1&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;彭总&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;807070024@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;807070024&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;807070024&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13269,</span><br><span class="line">                &quot;companyName&quot;: &quot;广州棒谷网络科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;刘睿乾&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;707867811@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;暂无&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1299839253&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;9.2&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13270,</span><br><span class="line">                &quot;companyName&quot;: &quot;快乐生活树熊网络&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;刘睿乾&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;331313711@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;暂无&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1299839253&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13280,</span><br><span class="line">                &quot;companyName&quot;: &quot;棋棋-斗地主&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;豆&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;286816592@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.24&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;卢宇&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 14076</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13281,</span><br><span class="line">                &quot;companyName&quot;: &quot;北京每日优鲜电子商务有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;李茜雯&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;lixw@missfresh.cn&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13581576932&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;411731961&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.2&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13287,</span><br><span class="line">                &quot;companyName&quot;: &quot;绿色健康减肥&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;陈总&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;460931534@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;X&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;X&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13294,</span><br><span class="line">                &quot;companyName&quot;: &quot;北京狂想时代科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;丁锟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;7055563@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13255713626&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2653771303&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;18711.09&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;5850&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;赖珊珊&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13938</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13331,</span><br><span class="line">                &quot;companyName&quot;: &quot;浙江土拨鼠网络科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;胥思虹&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;13828885773@189.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13828885773&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.03&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13332,</span><br><span class="line">                &quot;companyName&quot;: &quot;大富翁斗地主&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;丁锟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;wang@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13255713626&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2653771303&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.41&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;丁锟操作&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 37</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13338,</span><br><span class="line">                &quot;companyName&quot;: &quot;广州万兔斯瑞广告有限公司-男性&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;李大仁&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;1125965557@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;1125965557&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1125965557&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.25&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13339,</span><br><span class="line">                &quot;companyName&quot;: &quot;杭州东塑信息技术有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;丁锟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;627206812@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13255713626&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2653771303&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.5&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;丁锟操作&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 37</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13340,</span><br><span class="line">                &quot;companyName&quot;: &quot;北京诺神州科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;Nancy&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2558601685@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;17082470063&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2558601685&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13343,</span><br><span class="line">                &quot;companyName&quot;: &quot;海洋渔夫&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;丁锟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;460040802@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13255713626&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2653771303&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;998.23&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;赖珊珊&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13938</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13344,</span><br><span class="line">                &quot;companyName&quot;: &quot;黄玉玲&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;黄玉玲&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;839699501@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;15801480542&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;839699501&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.55&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13365,</span><br><span class="line">                &quot;companyName&quot;: &quot;丰胸免费领取&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;方先森&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;610479464@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18702000016&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;610479464&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.4&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13367,</span><br><span class="line">                &quot;companyName&quot;: &quot;趣网成人用品专营店&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;陈福聪&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;642252541@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18680868864&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;642252541&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-38.98&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13370,</span><br><span class="line">                &quot;companyName&quot;: &quot;上海卫裤&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;王海峰&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;16988@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;暂无&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;625666551&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.5&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13371,</span><br><span class="line">                &quot;companyName&quot;: &quot;游酷盛世科技（北京）有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;张林娟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2011037576@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;15081860163&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2011037576&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.22&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;汪康&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13760</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13374,</span><br><span class="line">                &quot;companyName&quot;: &quot;0808棋棋&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2761047325@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;2&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;3&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;1754.23&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13375,</span><br><span class="line">                &quot;companyName&quot;: &quot;厦门初日科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;邓慧&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2491843175@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13043047019&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2491843175&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.03&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13387,</span><br><span class="line">                &quot;companyName&quot;: &quot;欢乐购&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;林先生&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;1693330467@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13000000000&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1693330467&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13389,</span><br><span class="line">                &quot;companyName&quot;: &quot;夜缘觅爱&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;丁锟&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;691281479@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13255713626&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2653771303&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.33&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;丁锟操作&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 37</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13390,</span><br><span class="line">                &quot;companyName&quot;: &quot;武汉金易韵健康科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;彭小成&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;460867740@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;17371195588&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;460867740&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13391,</span><br><span class="line">                &quot;companyName&quot;: &quot;时时彩&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;郑世强&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2534699562@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;15088622568&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2534699562&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13392,</span><br><span class="line">                &quot;companyName&quot;: &quot;豪哥捕鱼&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;豪哥&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;13263156017@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13263156017&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;123456&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13393,</span><br><span class="line">                &quot;companyName&quot;: &quot;杭州昭宁贸易有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;8656@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18111111111&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13394,</span><br><span class="line">                &quot;companyName&quot;: &quot;北京华诚东方科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;林牧&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;victorialin0916@gmail.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13000000000&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1693330467&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.18&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13395,</span><br><span class="line">                &quot;companyName&quot;: &quot;左先生&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;左先生&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;18911441405@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18911441405&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1301411566&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13396,</span><br><span class="line">                &quot;companyName&quot;: &quot;杭州稠城信息技术有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;滑新颖&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2166573749@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13158813456&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2166573749&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13399,</span><br><span class="line">                &quot;companyName&quot;: &quot;杨泽-男科&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;杨泽&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;1301411566@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18618266932&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1301411566&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.4&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13400,</span><br><span class="line">                &quot;companyName&quot;: &quot;深圳市拾色科技网络有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;滑新颖&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;123654@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13232323232&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1123654&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.14&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13401,</span><br><span class="line">                &quot;companyName&quot;: &quot;上海黑桃互动网络科技有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;黄年达&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;245985552@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;15112124921&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;245985552&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;510.43&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;王灿锋&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 13426</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13402,</span><br><span class="line">                &quot;companyName&quot;: &quot;兼职-王欣&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;王欣&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;406121590@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13886095001&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;406121590&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13408,</span><br><span class="line">                &quot;companyName&quot;: &quot;鑫傲龙祥(北京）投资管理有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;张先生&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;2055517344@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18810249062&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;2055517344&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.12&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13409,</span><br><span class="line">                &quot;companyName&quot;: &quot;杭州新湖美丽洲置业有限公司&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;李&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;768798765@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;13888887777&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;768798765&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;id&quot;: 13410,</span><br><span class="line">                &quot;companyName&quot;: &quot;棋棋--杨泽&quot;,</span><br><span class="line">                &quot;contactName&quot;: &quot;杨泽&quot;,</span><br><span class="line">                &quot;contactMail&quot;: &quot;qipai@qq.com&quot;,</span><br><span class="line">                &quot;contactTel&quot;: &quot;18618266932&quot;,</span><br><span class="line">                &quot;contactQQ&quot;: &quot;1301411566&quot;,</span><br><span class="line">                &quot;fundSum&quot;: &quot;-0.28&quot;,</span><br><span class="line">                &quot;consumeTotal&quot;: &quot;0&quot;,</span><br><span class="line">                &quot;opName&quot;: &quot;卢宇&quot;,</span><br><span class="line">                &quot;opUserId&quot;: 14076</span><br><span class="line">            &#125;</span><br><span class="line">            ]</span><br><span class="line">    ,&apos;财务excel&apos;)</span><br><span class="line">    //json数据转excel</span><br><span class="line">    function JSONToExcelConvertor(JSONData, FileName) &#123;</span><br><span class="line">        //先转化json</span><br><span class="line">        var arrData = typeof JSONData != &apos;object&apos; ? JSON.parse(JSONData) : JSONData;</span><br><span class="line">        var excel = &apos;&lt;table&gt;&apos;;</span><br><span class="line">        var row = &quot;&lt;tr&gt;&quot;;</span><br><span class="line">        //设置表头</span><br><span class="line">        var keys = Object.keys(JSONData[0]);</span><br><span class="line">        // console.log(keys); //key</span><br><span class="line">        keys.forEach(function (item) &#123;</span><br><span class="line">            row += &quot;&lt;td&gt;&quot; + item + &apos;&lt;/td&gt;&apos;;</span><br><span class="line">        &#125;);</span><br><span class="line">        //换行</span><br><span class="line">        excel += row + &quot;&lt;/tr&gt;&quot;;</span><br><span class="line">        //设置数据</span><br><span class="line"></span><br><span class="line">        for (var i = 0; i &lt; arrData.length; i++) &#123;</span><br><span class="line">            var row = &quot;&lt;tr&gt;&quot;;</span><br><span class="line">            for (var index in arrData[i]) &#123;</span><br><span class="line">                // console.log(arrData[i][index]);</span><br><span class="line">                //var value = arrData[i][index] === &quot;.&quot; ? &quot;&quot; : arrData[i][index];</span><br><span class="line">                row += &apos;&lt;td&gt;&apos; + arrData[i][index] + &apos;&lt;/td&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            excel += row + &quot;&lt;/tr&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        excel += &quot;&lt;/table&gt;&quot;;</span><br><span class="line">        // console.log(excel)  //最终表格数据</span><br><span class="line"></span><br><span class="line">        var excelFile = &quot;&lt;html xmlns:o=&apos;urn:schemas-microsoft-com:office:office&apos; xmlns:x=&apos;urn:schemas-microsoft-com:office:excel&apos; xmlns=&apos;http://www.w3.org/TR/REC-html40&apos;&gt;&quot;;</span><br><span class="line">        excelFile += &apos;&lt;meta http-equiv=&quot;content-type&quot; content=&quot;application/vnd.ms-excel; charset=UTF-8&quot;&gt;&apos;;</span><br><span class="line">        excelFile += &apos;&lt;meta http-equiv=&quot;content-type&quot; content=&quot;application/vnd.ms-excel&apos;;</span><br><span class="line">        excelFile += &apos;; charset=UTF-8&quot;&gt;&apos;;</span><br><span class="line">        excelFile += &quot;&lt;head&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;!--[if gte mso 9]&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;xml&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:ExcelWorkbook&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:ExcelWorksheets&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:ExcelWorksheet&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:Name&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&#123;worksheet&#125;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/x:Name&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:WorksheetOptions&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;x:DisplayGridlines/&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/x:WorksheetOptions&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/x:ExcelWorksheet&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/x:ExcelWorksheets&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/x:ExcelWorkbook&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/xml&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;![endif]--&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/head&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;body&gt;&quot;;</span><br><span class="line">        excelFile += excel;</span><br><span class="line">        excelFile += &quot;&lt;/body&gt;&quot;;</span><br><span class="line">        excelFile += &quot;&lt;/html&gt;&quot;;</span><br><span class="line"></span><br><span class="line">        // console.log(excelFile)</span><br><span class="line">        var uri = &apos;data:application/vnd.ms-excel;charset=utf-8,&apos; + encodeURIComponent(excelFile);</span><br><span class="line"></span><br><span class="line">        var link = document.createElement(&quot;a&quot;);</span><br><span class="line">        link.href = uri;</span><br><span class="line"></span><br><span class="line">        link.style = &quot;visibility:hidden&quot;;</span><br><span class="line">        link.download = FileName + &quot;.xls&quot;;</span><br><span class="line"></span><br><span class="line">        document.body.appendChild(link);</span><br><span class="line">        console.log(link);</span><br><span class="line">        link.click();</span><br><span class="line"></span><br><span class="line">        document.body.removeChild(link);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;a href=&quot;https://blog.csdn.net/m0_37970224/article/details/79581429&quot;&gt;原文链接：https://blog.csdn.net/m0_37970224/article/details/79581429&lt;/a&gt;</span><br><span class="line">&lt;!--&lt;script&gt;--&gt;</span><br><span class="line">    &lt;!--//判断是否为JSON格式数据--&gt;</span><br><span class="line">    &lt;!--function isJSON(str) &#123;--&gt;</span><br><span class="line">        &lt;!--try &#123;--&gt;</span><br><span class="line">            &lt;!--if (typeof JSON.parse(str) == &quot;object&quot;) &#123;--&gt;</span><br><span class="line">                &lt;!--return true;--&gt;</span><br><span class="line">            &lt;!--&#125;--&gt;</span><br><span class="line">        &lt;!--&#125; catch(e) &#123;--&gt;</span><br><span class="line">        &lt;!--&#125;--&gt;</span><br><span class="line">        &lt;!--return false;--&gt;</span><br><span class="line">    &lt;!--&#125;--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--&lt;/script&gt;--&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/08/10/前端json生成excel/" data-id="cjkxg644b0009v7lit9vvqhbs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码/">代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-js小代码" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/05/js小代码/" class="article-date">
+  <time datetime="2018-06-05T09:22:08.000Z" itemprop="datePublished">2018-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/05/js小代码/">js小代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>将数字转化为金额:<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let num = 5262456.2158;</span><br><span class="line">num = toMoney(num);</span><br><span class="line">console.log(num);//打印结果    5,262,456.22</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//将数字转换成金额显示</span><br><span class="line">function toMoney(num)&#123;</span><br><span class="line">    num = num.toFixed(2);</span><br><span class="line">    num = parseFloat(num)</span><br><span class="line">    num = num.toLocaleString();</span><br><span class="line">    return num;//返回的是字符串23,245.12保留2位小数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>自定义log方法实现代理console.log()的功能，并在此基础上实现在每个输出前面增加一个递增的序号:<br>   var i = 0;<br>       function log(){<br>          i ++;<br>          var args = Array.prototype.slice.call(arguments); //为了使用unshift数组方法，将argument转化为真正的数组<br>          args.unshift(i);<br>          console.log.apply(console, args);<br>        };<br>      log(‘this num is 1’); // 1 this num is 1;<br>      log(‘this num is 2’); // 2 this num is 1;<br>    <code>`</code></p>
+</blockquote>
+<p>1.<br>    arguments是传给log()函数的实参。比如你调用log(‘hello’, ‘world’)，那么arguments就是[‘hello’, ‘world’]。</p>
+<pre><code>console.log.apply(console, arguments)这个主要是用来把arguments中的每个参数当作实参传递给console.log()的。如果直接像下面这样调用：
+
+console.log(arguments)
+
+那么会将arguments当作一个数组打印，而不是将其中的每一项作为参数传递给console.log()。也就是说，它的效果是：
+
+console.log([&apos;hello&apos;, &apos;world&apos;]) // 打印数组的内容[&apos;hello&apos;, &apos;world&apos;]
+
+而我们希望的是：
+
+console.log(&apos;hello&apos;, &apos;world&apos;) // 这时才是打印字符串hello world
+
+apply就正好可以实现这种需求
+</code></pre><p>2.<br>    console.log.apply(console, arguments)的意思是:<br>    让上面声明的那个log中的this由原来的指向切换到新的指向，即参数中的那个console——这句话是题主理解的重点咯~请看下面展开：<br>    如果不将第一个参数设置成console，你可以设置成window试试，于是上面的调用就变成console.log.apply(window, arguments)，那么因为log.apply中的this是指向第一个参数的即window`的，也就是：<br>    [纠正]因为console内部机制，用window调用是不合法的，只能用console自己调用！<br>    这是要这样写console.log.apply(console, arguments)的原因。</p>
+<pre><code>而通过apply的调用，第二个目的是为了达到可以一次接受一个参数arguments列表。
+
+理解误区：
+console.log.apply(console, arguments)等同console.log(arguments)而不是console(arguments)，且此时的console.log是被apply处理过的，可以一次接受若干参数。
+表轻易的理解ax.apply(bx, arguments) ==&gt; bx(arguments)
+</code></pre><p>3.</p>
+<p>如果function log2(x,y){console.log(arguments)}这里只能有arguments代替log2接收的不确定的参数，那么此时console.log(arguments)打印的是一个数组，不能真实打印出(x,y)，所以得用console.log.apply(arguments)。。</p>
+<p>一道面试题:<br>var a = {n:1};<br>    var b = a;<br>    a.x = a = {n:2};<br>    console.log(a.x);<br>    console.log(b.x);</p>
+<p>   step1 : a,b同时指向{n : 1};<br>   step2 : a.x的运算优先级高 ： 因此a.x = undefined;<br>   step3 : 此时 a = {n:2}, a重新指向了{n:2}; 因此a.x = undefined;<br>   step4 : b.x指向{n : 2}  因此b.x = {n : 2};</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/06/05/js小代码/" data-id="cjkxg643z0001v7li918u8uyn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码/">代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-原型链" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/05/原型链/" class="article-date">
+  <time datetime="2018-06-05T09:22:08.000Z" itemprop="datePublished">2018-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/05/原型链/">js小代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+</blockquote>
+<p>参考链接 : <a href="https://github.com/mqyqingfeng/Blog/issues/2" target="_blank" rel="noopener">https://github.com/mqyqingfeng/Blog/issues/2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/06/05/原型链/" data-id="cjkxg64400002v7lix48z4grs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码/">代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="[layout]-发布-订阅-观察者模式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/05/发布-订阅-观察者模式/" class="article-date">
+  <time datetime="2018-06-05T09:22:08.000Z" itemprop="datePublished">2018-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/05/发布-订阅-观察者模式/">发布-订阅 观察者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>观察者模式:<br>    定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知<br>写法1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 添加事件的方法，该方法接收两个参数，一个是要添加的事件的类型，一个是这个事件的回调函数名。</span><br><span class="line">// 调用的时候会首先遍历window.onMessag这个数组，看看这个类型的方法是否已经存在，如果已经存在则添加到该数组，如果不存在则先创建一个数组然后添加。</span><br><span class="line">window.onMessage = function(name,callback)&#123;</span><br><span class="line">    //此时内部window.onMessage 为一个数组，成员为callback，如果window.onMessage[name] 不存在,则创建一个空数组</span><br><span class="line">    var msgs = window.onMessage[name] = window.onMessage[name] || [];</span><br><span class="line">    msgs.push(callback); //浅拷贝，push后window.onMessage[name]的值也会改变(之前没注意到这层，导致半天没走通)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.sendMessage = function(name,param)&#123;</span><br><span class="line">    // msgs  = 数组window.onMessage[name],随后遍历改数组,调用window.onMessage[name]子数组里面的函数也即是一或多个callback(param);</span><br><span class="line">    var msgs = window.onMessage[name] || [];</span><br><span class="line">    msgs.forEach(function(msg)&#123;</span><br><span class="line">        msg(param);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line">//window.onMessage 监听事件</span><br><span class="line">//window.sendMessage 发布事件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">window.onMessage = function(name,callback)&#123;</span><br><span class="line">    window.onMessage[name] = window.onMessage[name] || [];</span><br><span class="line">    var msgs = Array.prototype.slice.call(window.onMessage[name]);  //此时使用的深拷贝则无法实现 , 当然</span><br><span class="line">    msgs.push(callback);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.sendMessage = function(name,param)&#123;</span><br><span class="line">    console.log(window.onMessage[name],23456787654);</span><br><span class="line">    var msgs = window.onMessage[name] || [];</span><br><span class="line">    msgs.forEach(function(msg)&#123;</span><br><span class="line">        msg(param);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实现2：参考自<a href="https://www.cnblogs.com/LuckyWinty/p/5796190.html" target="_blank" rel="noopener">https://www.cnblogs.com/LuckyWinty/p/5796190.html</a><br>    题目实现以下功能<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 测试1</span><br><span class="line">Event.on(&apos;test&apos;, function (result) &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br><span class="line">Event.on(&apos;test&apos;, function () &#123;</span><br><span class="line">    console.log(&apos;test&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">Event.emit(&apos;test&apos;, &apos;hello world&apos;); // 输出 &apos;hello world&apos; 和 &apos;test&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>代码:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var Event = &#123;</span><br><span class="line">    // 通过on接口监听事件eventName</span><br><span class="line">    // 如果事件eventName被触发，则执行callback回调函数</span><br><span class="line">    on: function (eventName, callback) &#123;</span><br><span class="line">        //我的代码</span><br><span class="line">        if(!this.handles)&#123;</span><br><span class="line">             this.handles=&#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">       if(!this.handles[eventName])&#123;</span><br><span class="line">            this.handles[eventName]=[];</span><br><span class="line">       &#125;</span><br><span class="line">       this.handles[eventName].push(callback);</span><br><span class="line">    &#125;,</span><br><span class="line">    // 触发事件 eventName</span><br><span class="line">    emit: function (eventName) &#123;</span><br><span class="line">        //你的代码</span><br><span class="line">       if(this.handles[arguments[0]])&#123;</span><br><span class="line">           for(var i=0;i&lt;this.handles[arguments[0]].length;i++)&#123;</span><br><span class="line">               this.handles[arguments[0]][i](arguments[1]);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/06/05/发布-订阅-观察者模式/" data-id="cjkxg64470005v7lie4sjxq06" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-charles教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/26/charles教程/" class="article-date">
+  <time datetime="2018-05-26T05:08:31.000Z" itemprop="datePublished">2018-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/26/charles教程/">charles mac版 &amp;&amp; 手机抓包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="charles-mac版手机抓包"><a href="#charles-mac版手机抓包" class="headerlink" title="charles mac版手机抓包"></a>charles mac版手机抓包</h2><ul>
+<li><a href="#官网">官网</a></li>
+<li><a href="#安装设置">安装设置</a></li>
+<li><a href="#链接设置">手机抓包设置</a></li>
+<li><a href="#抓包分析">抓包分析</a><ul>
+<li><a href="#overview">overview</a> </li>
+<li><a href="#request">request</a></li>
+<li><a href="#response">response</a></li>
+</ul>
+</li>
+<li><a href="#高级功能">高级功能</a><ul>
+<li><a href="#禁止缓存">禁止缓存</a></li>
+<li><a href="#禁止cookie">禁止cookie</a></li>
+<li><a href="#远程映射">远程映射</a><ul>
+<li><a href="#远程映射">设置</a></li>
+<li><a href="#查看远程映射记录">查看远程映射记录</a></li>
+<li><a href="#远程映射非常有用">远程映射非常有用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#断点">断点</a><ul>
+<li><a href="#重要作用">重要作用</a></li>
+<li><a href="#设置">设置</a></li>
+<li><a href="#使用示例，request修改cookie">使用示例，request修改cookie</a></li>
+</ul>
+</li>
+<li><a href="#https抓包">https抓包</a></li>
+<li><a href="#其它功能">其它功能</a></li>
+</ul>
+<h3 id="官网">官网</h3>
+
+<p> <a href="http://www.charlesproxy.com" target="_blank" rel="noopener">http://www.charlesproxy.com</a></p>
+<h3 id="安装设置">安装设置</h3>
+
+<p> mac按提示安装</p>
+<p> 安装完成后需要给charles权限,如果没有给予权限，charles无法抓包。</p>
+<p> 点击proxy-&gt;MAC OS X proxy</p>
+<p><img src="http://wd.geilicdn.com/5302846b55bfdd37e50cdffa911baaa1.png" style="max-width:100%;width:550px;"></p>
+<h3 id="链接设置">链接设置</h3>
+
+<p><img src="http://wd.geilicdn.com/9c9a8999f37e0dcb1a693b055072d8c3.jpg" style="max-width:100%;width:350px;"></p>
+<p> ifconfig 找到电脑ip 服务器填电脑ip 端口默认8888（下图）</p>
+<p><img src="http://wd.geilicdn.com/7329b383030de145c512450f811debb3.jpg" style="max-width:100%;width:350px;"></p>
+<p> 此时charles会自动弹出对话问是否允许通过chales代理访问。点击allow。如果想默认允许任何用户访问， 打开 面包Setting-&gt;Access Control Settings面板，点击add按钮 增加 &lt;0.0.0.0&gt;/0，以后就不会有该对话了。</p>
+<h3 id="抓包分析">抓包分析</h3>
+
+<h4 id="overview">overview</h4>
+
+<p><img src="http://wd.geilicdn.com/64c8e8965e4447ba28a330681b555a46.png" style="max-width:100%"></p>
+<p> （上图）包含了请求一些基本信息，如地址，请求方式、内容类型、耗时等等</p>
+<h4 id="request">request</h4>
+
+<p><img src="http://wd.geilicdn.com/733cc67d3051e3131cba5b6e2ec4c612.png" style="max-width:100%"></p>
+<p> (上图) 上图包含的信息非常重要， 说明此处http请求有多少数据发给服务端，如常用的cookie信息和user-agent（浏览器表示）信息</p>
+<p> Query string 、 Cookies 和 Raw tab为格式化信息，方便查看（下图）</p>
+<p><img src="http://wd.geilicdn.com/b30ed7940330a550e41ad8388f1d5cf5.png" style="max-width:100%"></p>
+<p> 双击后可以复制里面信息，不可编辑（如下图）</p>
+<p><img src="http://wd.geilicdn.com/856ec0ae20c2b094aa395db9557e1d2b.png" style="max-width:100%"></p>
+<h4 id="response">response</h4>
+
+<p> 可以看到非常详细返回信息,Set-cookie,表明本次请求服务端设置了哪些cookie（双击后可复制不可编辑）</p>
+<p><img src="http://wd.geilicdn.com/31f24d8896fa3f1a11fc83a2fc370c94.png"></p>
+<p> Summary、Chart、Notes等是请求耗时解析，建议在chrome浏览器查看，更加详细和一目了然（以下chrome截图）</p>
+<p><img src="http://wd.geilicdn.com/01ea3a51a2c2c6700c8749385517af81.png" style="max-width:100%"></p>
+<blockquote>
+<p>Queueing 浏览器有连接限制，当网页资源很多时就会出现排队的现象，排队的资源要等到上一个资源加载完毕释放后才能开始请求。比关键资源（如javascript与css）低优先级的请求会被浏览器推迟，一般推迟的都是图片。在许多资源同时发起请求时浏览器默认先加载css,然后javascript，最后才是图片。</p>
+</blockquote>
+<blockquote>
+<p>Stalled 浏览器得到要发出这个请求的指令，到请求可以发出的等待时间，一般是代理协商、以及等待可复用的TCP连接释放的时间，不包括DNS查询、建立TCP连接等时间等</p>
+</blockquote>
+<blockquote>
+<p>Request sent 请求第一个字节发出前到最后一个字节发出后的时间，也就是上传时间</p>
+</blockquote>
+<blockquote>
+<p>Waiting 请求发出完成后，到收到响应的第一个字节所花费的时间(Time To First Byte)，即响应时间</p>
+</blockquote>
+<blockquote>
+<p>Content Download 收到响应的第一个字节，到接受完最后一个字节的时间，就是下载时间</p>
+</blockquote>
+<h3 id="高级功能">高级功能</h3>
+
+<h4 id="禁止缓存">禁止缓存</h4>
+
+<p><img src="http://wd.geilicdn.com/e175b11d19b9ae5ee59f34ffd5aa0033.png"></p>
+<h4 id="禁止cookie">禁止cookie</h4>
+
+<p><img src="http://wd.geilicdn.com/50abc28165e013d235082fbb371d0a7a.png"></p>
+<h4 id="远程映射">远程映射</h4>
+
+
+
+<p> 选中一个请求-》右键-》Map Remote(下图) 弹出（下图2）</p>
+<p><img src="http://wd.geilicdn.com/6924af6c2d76434da988fa87affe9091.png" style="max-width:100%;"></p>
+<p><img src="http://wd.geilicdn.com/18442d24d541f6ed726390c7a158858f.png" style="max-width:100%;"></p>
+<p> 如果请求的参数有随机数，一定要将参数设置为通配符（**），否者下次请求的时候讲无法配对，导致映射失败。</p>
+<h4 id="查看远程映射记录">查看远程映射记录</h4>
+
+<p> 电脑菜单栏tools-》Map Remote</p>
+<p><img src="http://wd.geilicdn.com/e7c746b7706f4562b93e03af1ce44466.png"></p>
+<p>​    弹出下图</p>
+<p><img src="http://wd.geilicdn.com/a1fcbe29b318a336e375d1aaebf7b532.png" style="max-width:100%;"></p>
+<h4 id="远程映射非常有用">远程映射非常有用</h4>
+
+<p> 其作用是可以将一个地址代理成其他地址，开发和测试的通过这种方式使用线上app来进行调试和开发，无需繁琐的后台配置。</p>
+<p> 或者通过这种方式修改api数据，调试线上js bug 等等。</p>
+<h3 id="断点">断点</h3>
+
+<h4 id="重要作用">重要作用</h4>
+
+<p> 修改请求或者返回的header信息，包括cookie，修改请求的参数，修改返回的内容</p>
+<h4 id="设置">设置</h4> 
+
+<p> 右键点击请求，选择BreakPoints，刷新页面后碰到这个请求后断点生效。（如下图）</p>
+<p><img src="http://wd.geilicdn.com/7b32fed2da0e1d7ea98147723f49e836.png" style="max-width:100%;"></p>
+<p> 此时会在request和response进行两次打断，</p>
+<p> 如果只需要打断一次可以对面板进行设置</p>
+<p> 点击电脑菜单栏Proxy-》Breakpoints Settings （如下图）</p>
+<p><img src="http://wd.geilicdn.com/8a25a083a37f01d1d5aad8072e9b4730.png" style="max-width:100%;"></p>
+<p> 弹出下图</p>
+<p><img src="http://wd.geilicdn.com/8a616e0a06d8d8d4c8e15d6d3c64473f.png" style="max-width:100%;"></p>
+<p> 双击列表数据进入编辑模式（如下图）</p>
+<p><img src="http://wd.geilicdn.com/e3a32017eec58f3fa3c1dbf9b5881c72.png" style="max-width:100%;"></p>
+<p> 如果只选择了request，那么只会在发送请求的时候打断</p>
+<p> 如果只选择了response， 那么只会在返回的时候打断</p>
+<p> 如果都选，打断两次</p>
+<h4 id="使用示例，request修改cookie">使用示例，request修改cookie</h4>
+
+<p><img src="http://wd.geilicdn.com/8bc7865f869f2a5395692b01fddde9f4.png" style="max-width:100%;"></p>
+<h4 id="https抓包">https抓包</h4>
+
+<p>​     step1：打开charles，选择菜单“Help” =&gt; “SSL Proxying” =&gt; “Install Charles Root Certificate”，安装根证书（如果是在手机上，请选择 Install Charles Root Certificate on a Mobile Device or Remote Browser…，在手机上安装根证书)        </p>
+<p><img src="http://wd.geilicdn.com/9c0cf311cdb5763706498f448f59854a.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step2：打开钥匙串访问，找到 “Charles Proxy Custom Root Certificate证书”，系统默认提示“此证书已标记为不受此账户信任”</p>
+<p><img src="http://wd.geilicdn.com/81aa4272d837b2b5089093ee37107feb.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step3：选择“Charles Proxy Custom Root Certificate证书”，点击右键 =&gt;显示简介 =&gt; 点击“信任”，设置信任该证书；</p>
+<p><img src="http://wd.geilicdn.com/66198466e8ade7ef662f74191c3b6d17.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<p>​     step4：在charles菜单中选择”Proxy” =&gt; “SSL Proxying”，勾选“Enable SSL Proxying”，添加白名单域名列表</p>
+<p><img src="http://wd.geilicdn.com/624f14bf20f84527c77ca7dbc164bb9a.png" style="max-width:100%;margin:5px 0 15px 0"></p>
+<h4 id="其它功能">其它功能</h4>
+
+<p> 网速限制，本地映射，需要大家去摸索。</p>
+<p>end</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/05/26/charles教程/" data-id="cjkxg643e0000v7linphrp2g6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webpack解惑篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/webpack解惑篇/" class="article-date">
+  <time datetime="2017-10-26T11:39:36.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/webpack解惑篇/">webpack解惑篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[译] Webpack——令人困惑的地方(转载)                                                                                                                               </p>
+<blockquote>
+<p>原文 <a href="https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.jaqo97f72" target="_blank" rel="noopener">Webpack—The Confusing Parts</a><br>·<br>Webpack是目前基于React和Redux开发的应用的主要打包工具。我想使用Angular 2或其他框架开发的应用也有很多在使用Webpack。</p>
+</blockquote>
+<p>当我第一次看到Webpack的配置文件时，它看起来非常的陌生，我非常的疑惑。经过一段时间的尝试之后我认为这是因为Webpack只是使用了比较特别的语法和引入了新的原理，因此会让使用者感到疑惑。这些也是导致Webpack不被人熟悉的原因。</p>
+<p>因为刚开始使用Webpack很让人疑惑，我觉得有必要写几篇介绍Webpack的功能和特性的文章以帮助初学者快速理解。此文是最开始的一篇。</p>
+<h3 id="Webpack的核心原理"><a href="#Webpack的核心原理" class="headerlink" title="Webpack的核心原理"></a>Webpack的核心原理</h3><p>Webpack的两个最核心的原理分别是：</p>
+<p><strong>1. 一切皆模块</strong></p>
+<p>正如js文件可以是一个“模块（module）”一样，其他的（如css、image或html）文件也可视作模 块。因此，你可以<code>require(&#39;myJSfile.js&#39;)</code>亦可以<code>require(&#39;myCSSfile.css&#39;)</code>。这意味着我们可以将事物（业务）分割成更小的易于管理的片段，从而达到重复利用等的目的。</p>
+<p><strong>2. 按需加载</strong></p>
+<p>传统的模块打包工具（module bundlers）最终将所有的模块编译生成一个庞大的<code>bundle.js</code>文件。但是在真实的app里边，“bundle.js”文件可能有10M到15M之大可能会导致应用一直处于加载中状态。因此Webpack使用许多特性来分割代码然后生成多个“bundle”文件，而且异步加载部分代码以实现按需加载。</p>
+<p>好了，下面来看看那些令人困惑的部分吧。</p>
+<h3 id="1-开发模式和生产模式"><a href="#1-开发模式和生产模式" class="headerlink" title="1. 开发模式和生产模式"></a>1. 开发模式和生产模式</h3><p>首先要知道的是Webpack有许许多多的特性，一些是”开发模式“下才有的，一些是”生产模式“下才有的，还有一些是两种模式下都有的。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/769d362aaca4e1bea0c9f3abd1fd67f656c649d1/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a574341644d69303449464557646e674b38626b4663772e706e67&amp;objectId=1190000005089993&amp;token=8ef2d3ba496de9e014a72a911a247d07" alt="img"></p>
+<blockquote>
+<p>通常使用到Webpack如此多特性的项目都会有两个比较大的Webpack配置文件</p>
+</blockquote>
+<p>为了生成bundles文件你可能在<code>package.json</code>文件加入如下的scripts项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  // 运行npm run build 来编译生成生产模式下的bundles</span><br><span class="line">  &quot;build&quot;: &quot;webpack --config webpack.config.prod.js&quot;,</span><br><span class="line">  // 运行npm run dev来生成开发模式下的bundles以及启动本地server</span><br><span class="line">  &quot;dev&quot;: &quot;webpack-dev-server&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-webpack-CLI-和webpack-dev-server"><a href="#2-webpack-CLI-和webpack-dev-server" class="headerlink" title="2. webpack CLI 和webpack-dev-server"></a>2. webpack CLI 和webpack-dev-server</h3><p>值得注意的是，Webpack作为模块打包工具，提供两种用户交互接口：</p>
+<ol>
+<li>Webpack CLI tool：默认的交互方式（已随Webpack本身安装到本地）</li>
+<li>webpack-dev-server：一个Node.js服务器（需要开发者从npm自行安装）</li>
+</ol>
+<h5 id="Webpack-CLI（有利于生产模式下打包）"><a href="#Webpack-CLI（有利于生产模式下打包）" class="headerlink" title="Webpack CLI（有利于生产模式下打包）"></a>Webpack CLI（有利于生产模式下打包）</h5><p>这种方式可以从命令行获取参数也可以从配置文件（默认叫webpack.config.js）获取，将获取到的参数传入Webpack来打包。</p>
+<blockquote>
+<p>当然你也可以从命令行（CLI）开始学习Webpack，以后你可能主要在生产模式下使用到它。</p>
+</blockquote>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">方式1: </span><br><span class="line">// 全局模式安装webpack</span><br><span class="line">npm install webpack --g</span><br><span class="line">// 在终端输入</span><br><span class="line">$ webpack // &lt;--使用webpack.config.js生成bundle</span><br><span class="line"></span><br><span class="line">方式 2 :</span><br><span class="line">// 费全局模式安装webpack然后添加到package.json依赖里边</span><br><span class="line">npm install webpack --save</span><br><span class="line">// 添加build命令到package.json的scripts配置项</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line"> &quot;build&quot;: &quot;webpack --config webpack.config.prod.js -p&quot;,</span><br><span class="line"> ...</span><br><span class="line"> &#125;</span><br><span class="line">// 用法：</span><br><span class="line">&quot;npm run build&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="webpack-dev-server（有利于在开发模式下编译）"><a href="#webpack-dev-server（有利于在开发模式下编译）" class="headerlink" title="webpack-dev-server（有利于在开发模式下编译）"></a>webpack-dev-server（有利于在开发模式下编译）</h5><p>这是一个基于Express.js框架开发的web server，默认监听8080端口。server内部调用Webpack，这样做的好处是提供了额外的功能如热更新“Live Reload”以及热替换“Hot Module Replacement”（即HMR）。</p>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">方式 1:</span><br><span class="line">// 全局安装</span><br><span class="line">npm install webpack-dev-server --save</span><br><span class="line">// 终端输入</span><br><span class="line">$ webpack-dev-server --inline --hot</span><br><span class="line"></span><br><span class="line">用法 2:</span><br><span class="line">// 添加到package.json scripts</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line"> &quot;start&quot;: &quot;webpack-dev-server --inline --hot&quot;,</span><br><span class="line"> ...</span><br><span class="line"> &#125;</span><br><span class="line">// 运行： </span><br><span class="line">$ npm start</span><br><span class="line"></span><br><span class="line">// 浏览器预览：</span><br><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
+<h5 id="Webpack-VS-Webpack-dev-server选项"><a href="#Webpack-VS-Webpack-dev-server选项" class="headerlink" title="Webpack VS Webpack-dev-server选项"></a>Webpack VS Webpack-dev-server选项</h5><p>注意像<code>inline</code>和<code>hot</code>这些选项是Webpack-dev-server特有的，而另外的如<code>hide-modules</code>则是CLI模式特有的选项。</p>
+<h5 id="webpack-dev-server-CLI选项和配置项"><a href="#webpack-dev-server-CLI选项和配置项" class="headerlink" title="webpack-dev-server CLI选项和配置项"></a>webpack-dev-server CLI选项和配置项</h5><p>另外值得注意的是你可以通过以下两种方式向webpack-dev-server传入参数：</p>
+<ol>
+<li>通过webpack.config.js文件的”devServer”对象</li>
+<li>通过CLI选项</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 通过CLI传参</span><br><span class="line">webpack-dev-server --hot --inline</span><br><span class="line">// 通过webpack.config.js传参</span><br><span class="line">devServer: &#123;</span><br><span class="line">  inline: true,</span><br><span class="line">  hot:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我发现有时devServer配置项（hot: true 和inline: true）不生效，我更偏向使用如下的方式向CLI传递参数：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;scripts&quot;: &quot;webpack-dev-server --hot --inline&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：确定你没有同时传入<code>hot:true</code>和<code>-hot</code></p>
+</blockquote>
+<h5 id="webpack-dev-server的“hot”-和-“inline”选项"><a href="#webpack-dev-server的“hot”-和-“inline”选项" class="headerlink" title="webpack-dev-server的“hot” 和 “inline”选项"></a>webpack-dev-server的“hot” 和 “inline”选项</h5><p>“inline”选项会为入口页面添加“热加载”功能，“hot”选项则开启“热替换（Hot Module Reloading）”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）。如果两个参数都传入，当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 当资源发生改变，以下三种方式都会生成新的bundle，但是又有区别：</span><br><span class="line"> </span><br><span class="line">// 1. 不会刷新浏览器</span><br><span class="line">$ webpack-dev-server</span><br><span class="line">//2. 刷新浏览器</span><br><span class="line">$ webpack-dev-server --inline</span><br><span class="line">//3. 重新加载改变的部分，HRM失败则刷新页面</span><br><span class="line">$ webpack-dev-server  --inline --hot</span><br></pre></td></tr></table></figure>
+<h3 id="3-“entry”：值分别是字符串、数组和对象的情况"><a href="#3-“entry”：值分别是字符串、数组和对象的情况" class="headerlink" title="3. “entry”：值分别是字符串、数组和对象的情况"></a>3. “entry”：值分别是字符串、数组和对象的情况</h3><p>Enter配置项告诉Webpack应用的根模块或起始点在哪里，它的值可以是字符串、数组或对象。这看起来可能令人困惑，因为不同类型的值有着不同的目的。</p>
+<p>像绝大多数app一样，倘若你的应用只有一个单一的入口，enter项的值你可以使用任意类型，最终输出的结果都是一样的。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/94d5882d5d4c236cf6a550f604358193fd9a8ec4/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a4f6e58706676347a6a4c2d357a4f324861366d5844772e706e67&amp;objectId=1190000005089993&amp;token=64e51faef12eca5b358032de3c1e880f" alt="img"></p>
+<h5 id="enter：数组类型"><a href="#enter：数组类型" class="headerlink" title="enter：数组类型"></a>enter：数组类型</h5><p>但是，如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。</p>
+<p>例如，你可能在html文件里引用了“googleAnalytics.js”文件，可以告诉Webpack将其加到bundle.js的最后。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/cbc2ac1d6c1059654ddc9ab03d0fd5e3369c6d9a/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a794c566453336f4e34586f384b496e6f5449666930412e706e67&amp;objectId=1190000005089993&amp;token=0c9a72681db5faf0762ba5857a6db964" alt="img"></p>
+<h5 id="enter：对象"><a href="#enter：对象" class="headerlink" title="enter：对象"></a>enter：对象</h5><p>现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。</p>
+<p>以下的配置将会生成两个js文件：indexEntry.js和profileEntry.js分别会在index.html和profile.html中被引用。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/2ee6bc5c88b5cdb9452f3389a6e2e7060402b3f0/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a7842353152524334696b36424250326c4a39304975772e706e67&amp;objectId=1190000005089993&amp;token=f0b46f03ff6dc898da9067baf626d8fa" alt="img"></p>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//profile.html</span><br><span class="line">&lt;script src=”dist/profileEntry.js”&gt;&lt;/script&gt;</span><br><span class="line">//index.html</span><br><span class="line">&lt;script src=”dist/indexEntry.js”&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：文件名取自“entry”对象的键名。</p>
+<h5 id="enter：混合类型"><a href="#enter：混合类型" class="headerlink" title="enter：混合类型"></a>enter：混合类型</h5><p>你也可以在enter对象里使用数组类型，例如下面的配置将会生成3个文件：vender.js（包含三个文件），index.js和profile.js文件。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/7cb0c356dff08cfca479e68a5165a381c70aa613/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a797a373651593166567a42474b4a2d365836456c65672e706e67&amp;objectId=1190000005089993&amp;token=624695150c60eb2a050b2caefb6c9ccf" alt="img"></p>
+<h3 id="4-output：“path”项和“publicPath”项"><a href="#4-output：“path”项和“publicPath”项" class="headerlink" title="4. output：“path”项和“publicPath”项"></a>4. output：“path”项和“publicPath”项</h3><p>output项告诉webpack怎样存储输出结果以及存储到哪里。output的两个配置项“path”和“publicPath”可能会造成困惑。</p>
+<p>“path”仅仅告诉Webpack结果存储在哪里，然而“publicPath”项则被许多Webpack的插件用于在生产模式下更新内嵌到css、html文件里的url值。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/4802b6cfbcdfbb7cada7121ae14ba616c716edab/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a36335a7461346d62435f336f343451647963724437512e706e67&amp;objectId=1190000005089993&amp;token=b4f78469969b5fb63cde654650353654" alt="img"></p>
+<p>例如，在localhost（译者注：即本地开发模式）里的css文件中边你可能用“./test.png”这样的url来加载图片，但是在生产模式下“test.png”文件可能会定位到CDN上并且你的Node.js服务器可能是运行在HeroKu上边的。这就意味着在生产环境你必须手动更新所有文件里的url为CDN的路径。</p>
+<p>然而你也可以使用Webpack的“publicPath”选项和一些插件来在生产模式下编译输出文件时自动更新这些url。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/3cc10014e06c18fda61c2f5fa6b31f5275d4cafd/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a614f4d355a4638616c574c723442433043665a6530772e706e67&amp;objectId=1190000005089993&amp;token=6372937036687d77ef791c7c2db7eefa" alt="img"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开发环境：Server和图片都是在localhost（域名）下</span></span><br><span class="line">.image &#123; </span><br><span class="line">  background-image: url(<span class="string">'./test.png'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">// 生产环境：Server部署下HeroKu但是图片在CDN上</span></span><br><span class="line">.image &#123; </span><br><span class="line">  background-image: url(<span class="string">'https://someCDN/test.png'</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-模块加载和链式模块加载"><a href="#5-模块加载和链式模块加载" class="headerlink" title="5. 模块加载和链式模块加载"></a>5. 模块加载和链式模块加载</h3><p>模块加载器是可自由添加的Node模块，用于将不同类型的文件“load”或“import”并转换成浏览器可以识别的类型，如js、Stylesheet等。更高级的模块加载器甚至可以支持使用ES6里边的“require”或“import”引入模块。</p>
+<p>例如，你可以使用<code>babel-loader</code>来将使用ES6语法写成的文件转换成ES5：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.js$/</span>, <span class="comment">// 匹配.js文件，如果通过则使用下面的loader</span></span><br><span class="line">  exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// 排除node_modules文件夹</span></span><br><span class="line">  loader: <span class="string">'babel'</span> <span class="comment">// 使用babel（babel-loader的简写）作为loader</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<h5 id="链式（管道式）的加载器（从右往左执行）"><a href="#链式（管道式）的加载器（从右往左执行）" class="headerlink" title="链式（管道式）的加载器（从右往左执行）"></a>链式（管道式）的加载器（从右往左执行）</h5><p>多个loader可以用在同一个文件上并且被链式调用。链式调用时从右到左执行且loader之间用“!”来分割。</p>
+<p>例如，假设我们有一个名为“myCssFile.css”的css文件，然后我们想将它的内容使用style标签内联到最终输出的html里边。我们可以使用css-loader和style-loader两个loader来达到目的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  loader: <span class="string">'style!css'</span> <span class="comment">//(short for style-loader!css-loader)</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<p>这里展示它是如何工作的：</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/9c306d1bcc8f5fc732f772afd6101dcc88309eba/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a6e657339694c6d736b6d734438467034456b33752d412e706e67&amp;objectId=1190000005089993&amp;token=d757ce7c61c694004a55c7bb858c3611" alt="img"></p>
+<ol>
+<li>Webpack在模块颞部搜索在css的依赖项，即Webpack检查js文件是否有“require(‘myCssFile.css’)”的引用，如果它发现有css的依赖，Webpack将css文件交给“css-loader”去处理</li>
+<li>css-loader加载所有的css文件以及css自身的依赖（如，<a href="https://segmentfault.com/u/import" target="_blank" rel="noopener">@import</a> 其他css）到JSON对象里，Webpack然后将处理结果传给“style-loader”</li>
+<li>style-loader接受JSON值然后添加一个style标签并将其内嵌到html文件里</li>
+</ol>
+<h3 id="6-loader自身可以配置"><a href="#6-loader自身可以配置" class="headerlink" title="6. loader自身可以配置"></a>6. loader自身可以配置</h3><p>模块加载器（loader）自身可以根据传入不同的参数进行配置。</p>
+<p>在下面的例子中，我们可以配置url-loader来将小于1024字节的图片使用DataUrl替换而大于1024字节的图片使用url，我们可以用如下两种方式通过传入“limit“参数来实现这一目的：</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/df52305c7926e1071636fa6ad8e60a6da91df9cc/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a2d71566463413345384a536474737a784871664964412e706e67&amp;objectId=1190000005089993&amp;token=9e2000d27de2c31cec38c7e530ba8e3d" alt="img"></p>
+<h3 id="7-babelrc-文件"><a href="#7-babelrc-文件" class="headerlink" title="7. .babelrc 文件"></a>7. <code>.babelrc</code> 文件</h3><p>babal-loader使用”presets“配置项来标识如何将ES6语法转成ES5以及如何转换React的JSX成js文件。我们可以用如下的方式使用”query“参数传入配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">      loader: <span class="string">'babel'</span>,</span><br><span class="line">      query: &#123;</span><br><span class="line">        presets: [<span class="string">'react'</span>, <span class="string">'es2015'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而在很多项目里babal的配置可能比较大，因此你可以把babal-loader的配置项单独保存在一个名为”.babelrc“的文件中，在执行时babal-loader将会自动加载.babelrc文件。</p>
+<p>所以在很多例子里，你可能会看到：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webpack.config.js </span></span><br><span class="line"><span class="keyword">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.jsx?$/,</span><br><span class="line">      exclude: /(node_modules|bower_components)/,</span><br><span class="line">      loader: <span class="string">'babel'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.bablerc</span></span><br><span class="line">&#123;</span><br><span class="line"> presets: [<span class="string">'react'</span>, <span class="string">'es2015'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-插件"><a href="#8-插件" class="headerlink" title="8. 插件"></a>8. 插件</h3><p>插件一般都是用于输出bundle的node模块。</p>
+<p>例如，<a href="https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin" target="_blank" rel="noopener">uglifyJSPlugin</a>获取bundle.js然后压缩和混淆内容以减小文件体积。</p>
+<p>类似的<a href="https://github.com/webpack/extract-text-webpack-plugin" target="_blank" rel="noopener">extract-text-webpack-plugin</a>内部使用css-loader和style-loader来收集所有的css到一个地方最终将结果提取结果到一个独立的”styles.css“文件，并且在html里边引用style.css文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webpack.config.js</span></span><br><span class="line"><span class="comment">// 获取所有的.css文件，合并它们的内容然后提取css内容到一个独立的”styles.css“里</span></span><br><span class="line"><span class="keyword">var</span> ETP = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [</span><br><span class="line">  &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>:ETP.extract(<span class="string">"style-loader"</span>,<span class="string">"css-loader"</span>) &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>) <span class="comment">//Extract to styles.css file</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果你只是想把css使用style标签内联到html里，你不必使用extract-text-webpack-plugin，仅仅使用css loader和style loader即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  loader: <span class="string">'style!css'</span> <span class="comment">// (short for style-loader!css-loader)</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="9-加载器（loader）和插件"><a href="#9-加载器（loader）和插件" class="headerlink" title="9. 加载器（loader）和插件"></a>9. 加载器（loader）和插件</h3><p>你可能已经意识到了，Loader处理单独的文件级别并且通常作用于包生成之前或生成的过程中。</p>
+<p>而插件则是处理包（bundle）或者chunk级别，且通常是bundle生成的最后阶段。一些插件如<a href="https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin" target="_blank" rel="noopener">commonschunkplugin</a>甚至更直接修改bundle的生成方式。</p>
+<h3 id="10-处理文件的扩展名"><a href="#10-处理文件的扩展名" class="headerlink" title="10. 处理文件的扩展名"></a>10. 处理文件的扩展名</h3><p>很多Webpack的配置文件都有一个<code>resolve</code>属性，然后就像下面代码所示有一个空字符串的值。空字符串在此是为了resolve一些在import文件时不带文件扩展名的表达式，如<code>require(&#39;./myJSFile&#39;)</code>或者<code>import myJSFile from &#39;./myJSFile&#39;</code>（译者注：实际就是自动添加后缀，默认是当成js文件来查找路径）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> resolve: &#123;</span><br><span class="line">   extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​                                                                                            </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2017/10/26/webpack解惑篇/" data-id="cjkxg64450004v7lic598wjqi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webpack解惑篇的副本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/26/webpack解惑篇的副本/" class="article-date">
+  <time datetime="2017-10-26T11:39:36.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/26/webpack解惑篇的副本/">webpack解惑篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[译] Webpack——令人困惑的地方(转载)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">	console.log(1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>原文 <a href="https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.jaqo97f72" target="_blank" rel="noopener">Webpack—The Confusing Parts</a><br>·<br>Webpack是目前基于React和Redux开发的应用的主要打包工具。我想使用Angular 2或其他框架开发的应用也有很多在使用Webpack。</p>
+</blockquote>
+<p>当我第一次看到Webpack的配置文件时，它看起来非常的陌生，我非常的疑惑。经过一段时间的尝试之后我认为这是因为Webpack只是使用了比较特别的语法和引入了新的原理，因此会让使用者感到疑惑。这些也是导致Webpack不被人熟悉的原因。</p>
+<p>因为刚开始使用Webpack很让人疑惑，我觉得有必要写几篇介绍Webpack的功能和特性的文章以帮助初学者快速理解。此文是最开始的一篇。</p>
+<h3 id="Webpack的核心原理"><a href="#Webpack的核心原理" class="headerlink" title="Webpack的核心原理"></a>Webpack的核心原理</h3><p>Webpack的两个最核心的原理分别是：</p>
+<p><strong>1. 一切皆模块</strong></p>
+<p>正如js文件可以是一个“模块（module）”一样，其他的（如css、image或html）文件也可视作模 块。因此，你可以<code>require(&#39;myJSfile.js&#39;)</code>亦可以<code>require(&#39;myCSSfile.css&#39;)</code>。这意味着我们可以将事物（业务）分割成更小的易于管理的片段，从而达到重复利用等的目的。</p>
+<p><strong>2. 按需加载</strong></p>
+<p>传统的模块打包工具（module bundlers）最终将所有的模块编译生成一个庞大的<code>bundle.js</code>文件。但是在真实的app里边，“bundle.js”文件可能有10M到15M之大可能会导致应用一直处于加载中状态。因此Webpack使用许多特性来分割代码然后生成多个“bundle”文件，而且异步加载部分代码以实现按需加载。</p>
+<p>好了，下面来看看那些令人困惑的部分吧。</p>
+<h3 id="1-开发模式和生产模式"><a href="#1-开发模式和生产模式" class="headerlink" title="1. 开发模式和生产模式"></a>1. 开发模式和生产模式</h3><p>首先要知道的是Webpack有许许多多的特性，一些是”开发模式“下才有的，一些是”生产模式“下才有的，还有一些是两种模式下都有的。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/769d362aaca4e1bea0c9f3abd1fd67f656c649d1/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a574341644d69303449464557646e674b38626b4663772e706e67&amp;objectId=1190000005089993&amp;token=8ef2d3ba496de9e014a72a911a247d07" alt="img"></p>
+<blockquote>
+<p>通常使用到Webpack如此多特性的项目都会有两个比较大的Webpack配置文件</p>
+</blockquote>
+<p>为了生成bundles文件你可能在<code>package.json</code>文件加入如下的scripts项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  // 运行npm run build 来编译生成生产模式下的bundles</span><br><span class="line">  &quot;build&quot;: &quot;webpack --config webpack.config.prod.js&quot;,</span><br><span class="line">  // 运行npm run dev来生成开发模式下的bundles以及启动本地server</span><br><span class="line">  &quot;dev&quot;: &quot;webpack-dev-server&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-webpack-CLI-和webpack-dev-server"><a href="#2-webpack-CLI-和webpack-dev-server" class="headerlink" title="2. webpack CLI 和webpack-dev-server"></a>2. webpack CLI 和webpack-dev-server</h3><p>值得注意的是，Webpack作为模块打包工具，提供两种用户交互接口：</p>
+<ol>
+<li>Webpack CLI tool：默认的交互方式（已随Webpack本身安装到本地）</li>
+<li>webpack-dev-server：一个Node.js服务器（需要开发者从npm自行安装）</li>
+</ol>
+<h5 id="Webpack-CLI（有利于生产模式下打包）"><a href="#Webpack-CLI（有利于生产模式下打包）" class="headerlink" title="Webpack CLI（有利于生产模式下打包）"></a>Webpack CLI（有利于生产模式下打包）</h5><p>这种方式可以从命令行获取参数也可以从配置文件（默认叫webpack.config.js）获取，将获取到的参数传入Webpack来打包。</p>
+<blockquote>
+<p>当然你也可以从命令行（CLI）开始学习Webpack，以后你可能主要在生产模式下使用到它。</p>
+</blockquote>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">方式1: </span><br><span class="line">// 全局模式安装webpack</span><br><span class="line">npm install webpack --g</span><br><span class="line">// 在终端输入</span><br><span class="line">$ webpack // &lt;--使用webpack.config.js生成bundle</span><br><span class="line"></span><br><span class="line">方式 2 :</span><br><span class="line">// 费全局模式安装webpack然后添加到package.json依赖里边</span><br><span class="line">npm install webpack --save</span><br><span class="line">// 添加build命令到package.json的scripts配置项</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line"> &quot;build&quot;: &quot;webpack --config webpack.config.prod.js -p&quot;,</span><br><span class="line"> ...</span><br><span class="line"> &#125;</span><br><span class="line">// 用法：</span><br><span class="line">&quot;npm run build&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="webpack-dev-server（有利于在开发模式下编译）"><a href="#webpack-dev-server（有利于在开发模式下编译）" class="headerlink" title="webpack-dev-server（有利于在开发模式下编译）"></a>webpack-dev-server（有利于在开发模式下编译）</h5><p>这是一个基于Express.js框架开发的web server，默认监听8080端口。server内部调用Webpack，这样做的好处是提供了额外的功能如热更新“Live Reload”以及热替换“Hot Module Replacement”（即HMR）。</p>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">方式 1:</span><br><span class="line">// 全局安装</span><br><span class="line">npm install webpack-dev-server --save</span><br><span class="line">// 终端输入</span><br><span class="line">$ webpack-dev-server --inline --hot</span><br><span class="line"></span><br><span class="line">用法 2:</span><br><span class="line">// 添加到package.json scripts</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line"> &quot;start&quot;: &quot;webpack-dev-server --inline --hot&quot;,</span><br><span class="line"> ...</span><br><span class="line"> &#125;</span><br><span class="line">// 运行： </span><br><span class="line">$ npm start</span><br><span class="line"></span><br><span class="line">// 浏览器预览：</span><br><span class="line">http://localhost:8080</span><br></pre></td></tr></table></figure>
+<h5 id="Webpack-VS-Webpack-dev-server选项"><a href="#Webpack-VS-Webpack-dev-server选项" class="headerlink" title="Webpack VS Webpack-dev-server选项"></a>Webpack VS Webpack-dev-server选项</h5><p>注意像<code>inline</code>和<code>hot</code>这些选项是Webpack-dev-server特有的，而另外的如<code>hide-modules</code>则是CLI模式特有的选项。</p>
+<h5 id="webpack-dev-server-CLI选项和配置项"><a href="#webpack-dev-server-CLI选项和配置项" class="headerlink" title="webpack-dev-server CLI选项和配置项"></a>webpack-dev-server CLI选项和配置项</h5><p>另外值得注意的是你可以通过以下两种方式向webpack-dev-server传入参数：</p>
+<ol>
+<li>通过webpack.config.js文件的”devServer”对象</li>
+<li>通过CLI选项</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 通过CLI传参</span><br><span class="line">webpack-dev-server --hot --inline</span><br><span class="line">// 通过webpack.config.js传参</span><br><span class="line">devServer: &#123;</span><br><span class="line">  inline: true,</span><br><span class="line">  hot:true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我发现有时devServer配置项（hot: true 和inline: true）不生效，我更偏向使用如下的方式向CLI传递参数：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;scripts&quot;: &quot;webpack-dev-server --hot --inline&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：确定你没有同时传入<code>hot:true</code>和<code>-hot</code></p>
+</blockquote>
+<h5 id="webpack-dev-server的“hot”-和-“inline”选项"><a href="#webpack-dev-server的“hot”-和-“inline”选项" class="headerlink" title="webpack-dev-server的“hot” 和 “inline”选项"></a>webpack-dev-server的“hot” 和 “inline”选项</h5><p>“inline”选项会为入口页面添加“热加载”功能，“hot”选项则开启“热替换（Hot Module Reloading）”，即尝试重新加载组件改变的部分（而不是重新加载整个页面）。如果两个参数都传入，当资源改变时，webpack-dev-server将会先尝试HRM（即热替换），如果失败则重新加载整个入口页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 当资源发生改变，以下三种方式都会生成新的bundle，但是又有区别：</span><br><span class="line"> </span><br><span class="line">// 1. 不会刷新浏览器</span><br><span class="line">$ webpack-dev-server</span><br><span class="line">//2. 刷新浏览器</span><br><span class="line">$ webpack-dev-server --inline</span><br><span class="line">//3. 重新加载改变的部分，HRM失败则刷新页面</span><br><span class="line">$ webpack-dev-server  --inline --hot</span><br></pre></td></tr></table></figure>
+<h3 id="3-“entry”：值分别是字符串、数组和对象的情况"><a href="#3-“entry”：值分别是字符串、数组和对象的情况" class="headerlink" title="3. “entry”：值分别是字符串、数组和对象的情况"></a>3. “entry”：值分别是字符串、数组和对象的情况</h3><p>Enter配置项告诉Webpack应用的根模块或起始点在哪里，它的值可以是字符串、数组或对象。这看起来可能令人困惑，因为不同类型的值有着不同的目的。</p>
+<p>像绝大多数app一样，倘若你的应用只有一个单一的入口，enter项的值你可以使用任意类型，最终输出的结果都是一样的。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/94d5882d5d4c236cf6a550f604358193fd9a8ec4/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a4f6e58706676347a6a4c2d357a4f324861366d5844772e706e67&amp;objectId=1190000005089993&amp;token=64e51faef12eca5b358032de3c1e880f" alt="img"></p>
+<h5 id="enter：数组类型"><a href="#enter：数组类型" class="headerlink" title="enter：数组类型"></a>enter：数组类型</h5><p>但是，如果你想添加多个彼此不互相依赖的文件，你可以使用数组格式的值。</p>
+<p>例如，你可能在html文件里引用了“googleAnalytics.js”文件，可以告诉Webpack将其加到bundle.js的最后。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/cbc2ac1d6c1059654ddc9ab03d0fd5e3369c6d9a/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a794c566453336f4e34586f384b496e6f5449666930412e706e67&amp;objectId=1190000005089993&amp;token=0c9a72681db5faf0762ba5857a6db964" alt="img"></p>
+<h5 id="enter：对象"><a href="#enter：对象" class="headerlink" title="enter：对象"></a>enter：对象</h5><p>现在，假设你的应用是多页面的（multi-page application）而不是SPA，有多个html文件（index.html和profile.html）。然后你通过一个对象告诉Webpack为每一个html生成一个bundle文件。</p>
+<p>以下的配置将会生成两个js文件：indexEntry.js和profileEntry.js分别会在index.html和profile.html中被引用。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/2ee6bc5c88b5cdb9452f3389a6e2e7060402b3f0/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a7842353152524334696b36424250326c4a39304975772e706e67&amp;objectId=1190000005089993&amp;token=f0b46f03ff6dc898da9067baf626d8fa" alt="img"></p>
+<p>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//profile.html</span><br><span class="line">&lt;script src=”dist/profileEntry.js”&gt;&lt;/script&gt;</span><br><span class="line">//index.html</span><br><span class="line">&lt;script src=”dist/indexEntry.js”&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>注意：文件名取自“entry”对象的键名。</p>
+<h5 id="enter：混合类型"><a href="#enter：混合类型" class="headerlink" title="enter：混合类型"></a>enter：混合类型</h5><p>你也可以在enter对象里使用数组类型，例如下面的配置将会生成3个文件：vender.js（包含三个文件），index.js和profile.js文件。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/7cb0c356dff08cfca479e68a5165a381c70aa613/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a797a373651593166567a42474b4a2d365836456c65672e706e67&amp;objectId=1190000005089993&amp;token=624695150c60eb2a050b2caefb6c9ccf" alt="img"></p>
+<h3 id="4-output：“path”项和“publicPath”项"><a href="#4-output：“path”项和“publicPath”项" class="headerlink" title="4. output：“path”项和“publicPath”项"></a>4. output：“path”项和“publicPath”项</h3><p>output项告诉webpack怎样存储输出结果以及存储到哪里。output的两个配置项“path”和“publicPath”可能会造成困惑。</p>
+<p>“path”仅仅告诉Webpack结果存储在哪里，然而“publicPath”项则被许多Webpack的插件用于在生产模式下更新内嵌到css、html文件里的url值。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/4802b6cfbcdfbb7cada7121ae14ba616c716edab/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a36335a7461346d62435f336f343451647963724437512e706e67&amp;objectId=1190000005089993&amp;token=b4f78469969b5fb63cde654650353654" alt="img"></p>
+<p>例如，在localhost（译者注：即本地开发模式）里的css文件中边你可能用“./test.png”这样的url来加载图片，但是在生产模式下“test.png”文件可能会定位到CDN上并且你的Node.js服务器可能是运行在HeroKu上边的。这就意味着在生产环境你必须手动更新所有文件里的url为CDN的路径。</p>
+<p>然而你也可以使用Webpack的“publicPath”选项和一些插件来在生产模式下编译输出文件时自动更新这些url。</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/3cc10014e06c18fda61c2f5fa6b31f5275d4cafd/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a614f4d355a4638616c574c723442433043665a6530772e706e67&amp;objectId=1190000005089993&amp;token=6372937036687d77ef791c7c2db7eefa" alt="img"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开发环境：Server和图片都是在localhost（域名）下</span></span><br><span class="line">.image &#123; </span><br><span class="line">  background-image: url(<span class="string">'./test.png'</span>);</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">// 生产环境：Server部署下HeroKu但是图片在CDN上</span></span><br><span class="line">.image &#123; </span><br><span class="line">  background-image: url(<span class="string">'https://someCDN/test.png'</span>);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-模块加载和链式模块加载"><a href="#5-模块加载和链式模块加载" class="headerlink" title="5. 模块加载和链式模块加载"></a>5. 模块加载和链式模块加载</h3><p>模块加载器是可自由添加的Node模块，用于将不同类型的文件“load”或“import”并转换成浏览器可以识别的类型，如js、Stylesheet等。更高级的模块加载器甚至可以支持使用ES6里边的“require”或“import”引入模块。</p>
+<p>例如，你可以使用<code>babel-loader</code>来将使用ES6语法写成的文件转换成ES5：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.js$/</span>, <span class="comment">// 匹配.js文件，如果通过则使用下面的loader</span></span><br><span class="line">  exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// 排除node_modules文件夹</span></span><br><span class="line">  loader: <span class="string">'babel'</span> <span class="comment">// 使用babel（babel-loader的简写）作为loader</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<h5 id="链式（管道式）的加载器（从右往左执行）"><a href="#链式（管道式）的加载器（从右往左执行）" class="headerlink" title="链式（管道式）的加载器（从右往左执行）"></a>链式（管道式）的加载器（从右往左执行）</h5><p>多个loader可以用在同一个文件上并且被链式调用。链式调用时从右到左执行且loader之间用“!”来分割。</p>
+<p>例如，假设我们有一个名为“myCssFile.css”的css文件，然后我们想将它的内容使用style标签内联到最终输出的html里边。我们可以使用css-loader和style-loader两个loader来达到目的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  loader: <span class="string">'style!css'</span> <span class="comment">//(short for style-loader!css-loader)</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<p>这里展示它是如何工作的：</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/9c306d1bcc8f5fc732f772afd6101dcc88309eba/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a6e657339694c6d736b6d734438467034456b33752d412e706e67&amp;objectId=1190000005089993&amp;token=d757ce7c61c694004a55c7bb858c3611" alt="img"></p>
+<ol>
+<li>Webpack在模块颞部搜索在css的依赖项，即Webpack检查js文件是否有“require(‘myCssFile.css’)”的引用，如果它发现有css的依赖，Webpack将css文件交给“css-loader”去处理</li>
+<li>css-loader加载所有的css文件以及css自身的依赖（如，<a href="https://segmentfault.com/u/import" target="_blank" rel="noopener">@import</a> 其他css）到JSON对象里，Webpack然后将处理结果传给“style-loader”</li>
+<li>style-loader接受JSON值然后添加一个style标签并将其内嵌到html文件里</li>
+</ol>
+<h3 id="6-loader自身可以配置"><a href="#6-loader自身可以配置" class="headerlink" title="6. loader自身可以配置"></a>6. loader自身可以配置</h3><p>模块加载器（loader）自身可以根据传入不同的参数进行配置。</p>
+<p>在下面的例子中，我们可以配置url-loader来将小于1024字节的图片使用DataUrl替换而大于1024字节的图片使用url，我们可以用如下两种方式通过传入“limit“参数来实现这一目的：</p>
+<p><img src="https://segmentfault.com/image?src=https://camo.githubusercontent.com/df52305c7926e1071636fa6ad8e60a6da91df9cc/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a2d71566463413345384a536474737a784871664964412e706e67&amp;objectId=1190000005089993&amp;token=9e2000d27de2c31cec38c7e530ba8e3d" alt="img"></p>
+<h3 id="7-babelrc-文件"><a href="#7-babelrc-文件" class="headerlink" title="7. .babelrc 文件"></a>7. <code>.babelrc</code> 文件</h3><p>babal-loader使用”presets“配置项来标识如何将ES6语法转成ES5以及如何转换React的JSX成js文件。我们可以用如下的方式使用”query“参数传入配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/(node_modules|bower_components)/</span>,</span><br><span class="line">      loader: <span class="string">'babel'</span>,</span><br><span class="line">      query: &#123;</span><br><span class="line">        presets: [<span class="string">'react'</span>, <span class="string">'es2015'</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而在很多项目里babal的配置可能比较大，因此你可以把babal-loader的配置项单独保存在一个名为”.babelrc“的文件中，在执行时babal-loader将会自动加载.babelrc文件。</p>
+<p>所以在很多例子里，你可能会看到：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webpack.config.js </span></span><br><span class="line"><span class="keyword">module</span>: &#123;</span><br><span class="line">  loaders: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: /\.jsx?$/,</span><br><span class="line">      exclude: /(node_modules|bower_components)/,</span><br><span class="line">      loader: <span class="string">'babel'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.bablerc</span></span><br><span class="line">&#123;</span><br><span class="line"> presets: [<span class="string">'react'</span>, <span class="string">'es2015'</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-插件"><a href="#8-插件" class="headerlink" title="8. 插件"></a>8. 插件</h3><p>插件一般都是用于输出bundle的node模块。</p>
+<p>例如，<a href="https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin" target="_blank" rel="noopener">uglifyJSPlugin</a>获取bundle.js然后压缩和混淆内容以减小文件体积。</p>
+<p>类似的<a href="https://github.com/webpack/extract-text-webpack-plugin" target="_blank" rel="noopener">extract-text-webpack-plugin</a>内部使用css-loader和style-loader来收集所有的css到一个地方最终将结果提取结果到一个独立的”styles.css“文件，并且在html里边引用style.css文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webpack.config.js</span></span><br><span class="line"><span class="comment">// 获取所有的.css文件，合并它们的内容然后提取css内容到一个独立的”styles.css“里</span></span><br><span class="line"><span class="keyword">var</span> ETP = <span class="built_in">require</span>(<span class="string">"extract-text-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [</span><br><span class="line">  &#123;<span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">loader</span>:ETP.extract(<span class="string">"style-loader"</span>,<span class="string">"css-loader"</span>) &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(<span class="string">"styles.css"</span>) <span class="comment">//Extract to styles.css file</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：如果你只是想把css使用style标签内联到html里，你不必使用extract-text-webpack-plugin，仅仅使用css loader和style loader即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line"> loaders: [&#123;</span><br><span class="line">  test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">  loader: <span class="string">'style!css'</span> <span class="comment">// (short for style-loader!css-loader)</span></span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<h3 id="9-加载器（loader）和插件"><a href="#9-加载器（loader）和插件" class="headerlink" title="9. 加载器（loader）和插件"></a>9. 加载器（loader）和插件</h3><p>你可能已经意识到了，Loader处理单独的文件级别并且通常作用于包生成之前或生成的过程中。</p>
+<p>而插件则是处理包（bundle）或者chunk级别，且通常是bundle生成的最后阶段。一些插件如<a href="https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin" target="_blank" rel="noopener">commonschunkplugin</a>甚至更直接修改bundle的生成方式。</p>
+<h3 id="10-处理文件的扩展名"><a href="#10-处理文件的扩展名" class="headerlink" title="10. 处理文件的扩展名"></a>10. 处理文件的扩展名</h3><p>很多Webpack的配置文件都有一个<code>resolve</code>属性，然后就像下面代码所示有一个空字符串的值。空字符串在此是为了resolve一些在import文件时不带文件扩展名的表达式，如<code>require(&#39;./myJSFile&#39;)</code>或者<code>import myJSFile from &#39;./myJSFile&#39;</code>（译者注：实际就是自动添加后缀，默认是当成js文件来查找路径）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> resolve: &#123;</span><br><span class="line">   extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​                                                                                            </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2017/10/26/webpack解惑篇的副本/" data-id="cjkxg64480006v7litcr2b5n1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/代码/" style="font-size: 20px;">代码</a> <a href="/tags/观察者模式的两种实现方式/" style="font-size: 10px;">观察者模式的两种实现方式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/10/前端json生成excel/">js生成excel并导出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/js小代码/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/原型链/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/发布-订阅-观察者模式/">发布-订阅 观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/charles教程/">charles mac版 &amp;&amp; 手机抓包</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 倪胜<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

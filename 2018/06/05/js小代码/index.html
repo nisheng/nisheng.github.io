@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>js小代码 | 忆川</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="将数字转化为金额:   123456789101112let num = 5262456.2158;num = toMoney(num);console.log(num);//打印结果    5,262,456.22//将数字转换成金额显示function toMoney(num)&amp;#123;    num = num.toFixed(2);    num = parseFloat(num)">
+<meta name="keywords" content="代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js小代码">
+<meta property="og:url" content="nisheng.github.com/2018/06/05/js小代码/index.html">
+<meta property="og:site_name" content="忆川">
+<meta property="og:description" content="将数字转化为金额:   123456789101112let num = 5262456.2158;num = toMoney(num);console.log(num);//打印结果    5,262,456.22//将数字转换成金额显示function toMoney(num)&amp;#123;    num = num.toFixed(2);    num = parseFloat(num)">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-17T03:39:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js小代码">
+<meta name="twitter:description" content="将数字转化为金额:   123456789101112let num = 5262456.2158;num = toMoney(num);console.log(num);//打印结果    5,262,456.22//将数字转换成金额显示function toMoney(num)&amp;#123;    num = num.toFixed(2);    num = parseFloat(num)">
+  
+    <link rel="alternate" href="/atom.xml" title="忆川" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">忆川</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="nisheng.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="[layout]-js小代码" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/05/js小代码/" class="article-date">
+  <time datetime="2018-06-05T09:22:08.000Z" itemprop="datePublished">2018-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js小代码
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>将数字转化为金额:<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let num = 5262456.2158;</span><br><span class="line">num = toMoney(num);</span><br><span class="line">console.log(num);//打印结果    5,262,456.22</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//将数字转换成金额显示</span><br><span class="line">function toMoney(num)&#123;</span><br><span class="line">    num = num.toFixed(2);</span><br><span class="line">    num = parseFloat(num)</span><br><span class="line">    num = num.toLocaleString();</span><br><span class="line">    return num;//返回的是字符串23,245.12保留2位小数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>自定义log方法实现代理console.log()的功能，并在此基础上实现在每个输出前面增加一个递增的序号:<br>   var i = 0;<br>       function log(){<br>          i ++;<br>          var args = Array.prototype.slice.call(arguments); //为了使用unshift数组方法，将argument转化为真正的数组<br>          args.unshift(i);<br>          console.log.apply(console, args);<br>        };<br>      log(‘this num is 1’); // 1 this num is 1;<br>      log(‘this num is 2’); // 2 this num is 1;<br>    <code>`</code></p>
+</blockquote>
+<p>1.<br>    arguments是传给log()函数的实参。比如你调用log(‘hello’, ‘world’)，那么arguments就是[‘hello’, ‘world’]。</p>
+<pre><code>console.log.apply(console, arguments)这个主要是用来把arguments中的每个参数当作实参传递给console.log()的。如果直接像下面这样调用：
+
+console.log(arguments)
+
+那么会将arguments当作一个数组打印，而不是将其中的每一项作为参数传递给console.log()。也就是说，它的效果是：
+
+console.log([&apos;hello&apos;, &apos;world&apos;]) // 打印数组的内容[&apos;hello&apos;, &apos;world&apos;]
+
+而我们希望的是：
+
+console.log(&apos;hello&apos;, &apos;world&apos;) // 这时才是打印字符串hello world
+
+apply就正好可以实现这种需求
+</code></pre><p>2.<br>    console.log.apply(console, arguments)的意思是:<br>    让上面声明的那个log中的this由原来的指向切换到新的指向，即参数中的那个console——这句话是题主理解的重点咯~请看下面展开：<br>    如果不将第一个参数设置成console，你可以设置成window试试，于是上面的调用就变成console.log.apply(window, arguments)，那么因为log.apply中的this是指向第一个参数的即window`的，也就是：<br>    [纠正]因为console内部机制，用window调用是不合法的，只能用console自己调用！<br>    这是要这样写console.log.apply(console, arguments)的原因。</p>
+<pre><code>而通过apply的调用，第二个目的是为了达到可以一次接受一个参数arguments列表。
+
+理解误区：
+console.log.apply(console, arguments)等同console.log(arguments)而不是console(arguments)，且此时的console.log是被apply处理过的，可以一次接受若干参数。
+表轻易的理解ax.apply(bx, arguments) ==&gt; bx(arguments)
+</code></pre><p>3.</p>
+<p>如果function log2(x,y){console.log(arguments)}这里只能有arguments代替log2接收的不确定的参数，那么此时console.log(arguments)打印的是一个数组，不能真实打印出(x,y)，所以得用console.log.apply(arguments)。。</p>
+<p>一道面试题:<br>var a = {n:1};<br>    var b = a;<br>    a.x = a = {n:2};<br>    console.log(a.x);<br>    console.log(b.x);</p>
+<p>   step1 : a,b同时指向{n : 1};<br>   step2 : a.x的运算优先级高 ： 因此a.x = undefined;<br>   step3 : 此时 a = {n:2}, a重新指向了{n:2}; 因此a.x = undefined;<br>   step4 : b.x指向{n : 2}  因此b.x = {n : 2};</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/06/05/js小代码/" data-id="cjkxg643z0001v7li918u8uyn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码/">代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/10/前端json生成excel/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js生成excel并导出
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/05/原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">js小代码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/代码/" style="font-size: 20px;">代码</a> <a href="/tags/观察者模式的两种实现方式/" style="font-size: 10px;">观察者模式的两种实现方式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/10/前端json生成excel/">js生成excel并导出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/js小代码/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/原型链/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/发布-订阅-观察者模式/">发布-订阅 观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/charles教程/">charles mac版 &amp;&amp; 手机抓包</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 倪胜<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

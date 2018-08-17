@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>发布-订阅 观察者模式 | 忆川</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="观察者模式:    定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知写法1:1234567891011121314151617// 添加事件的方法，该方法接收两个参数，一个是要添加的事件的类型，一个是这个事件的回调函数名。// 调用的时候会首先遍历window.onMessag这个数组，看看这个类型的方法是否已经存在，如果已经存在则添加到该数组，如果不">
+<meta name="keywords" content="观察者模式的两种实现方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发布-订阅 观察者模式">
+<meta property="og:url" content="nisheng.github.com/2018/06/05/发布-订阅-观察者模式/index.html">
+<meta property="og:site_name" content="忆川">
+<meta property="og:description" content="观察者模式:    定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知写法1:1234567891011121314151617// 添加事件的方法，该方法接收两个参数，一个是要添加的事件的类型，一个是这个事件的回调函数名。// 调用的时候会首先遍历window.onMessag这个数组，看看这个类型的方法是否已经存在，如果已经存在则添加到该数组，如果不">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-17T03:39:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="发布-订阅 观察者模式">
+<meta name="twitter:description" content="观察者模式:    定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知写法1:1234567891011121314151617// 添加事件的方法，该方法接收两个参数，一个是要添加的事件的类型，一个是这个事件的回调函数名。// 调用的时候会首先遍历window.onMessag这个数组，看看这个类型的方法是否已经存在，如果已经存在则添加到该数组，如果不">
+  
+    <link rel="alternate" href="/atom.xml" title="忆川" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">忆川</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="nisheng.github.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="[layout]-发布-订阅-观察者模式" class="article article-type-[layout]" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/05/发布-订阅-观察者模式/" class="article-date">
+  <time datetime="2018-06-05T09:22:08.000Z" itemprop="datePublished">2018-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      发布-订阅 观察者模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>观察者模式:<br>    定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知<br>写法1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 添加事件的方法，该方法接收两个参数，一个是要添加的事件的类型，一个是这个事件的回调函数名。</span><br><span class="line">// 调用的时候会首先遍历window.onMessag这个数组，看看这个类型的方法是否已经存在，如果已经存在则添加到该数组，如果不存在则先创建一个数组然后添加。</span><br><span class="line">window.onMessage = function(name,callback)&#123;</span><br><span class="line">    //此时内部window.onMessage 为一个数组，成员为callback，如果window.onMessage[name] 不存在,则创建一个空数组</span><br><span class="line">    var msgs = window.onMessage[name] = window.onMessage[name] || [];</span><br><span class="line">    msgs.push(callback); //浅拷贝，push后window.onMessage[name]的值也会改变(之前没注意到这层，导致半天没走通)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.sendMessage = function(name,param)&#123;</span><br><span class="line">    // msgs  = 数组window.onMessage[name],随后遍历改数组,调用window.onMessage[name]子数组里面的函数也即是一或多个callback(param);</span><br><span class="line">    var msgs = window.onMessage[name] || [];</span><br><span class="line">    msgs.forEach(function(msg)&#123;</span><br><span class="line">        msg(param);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br><span class="line">//window.onMessage 监听事件</span><br><span class="line">//window.sendMessage 发布事件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">window.onMessage = function(name,callback)&#123;</span><br><span class="line">    window.onMessage[name] = window.onMessage[name] || [];</span><br><span class="line">    var msgs = Array.prototype.slice.call(window.onMessage[name]);  //此时使用的深拷贝则无法实现 , 当然</span><br><span class="line">    msgs.push(callback);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">window.sendMessage = function(name,param)&#123;</span><br><span class="line">    console.log(window.onMessage[name],23456787654);</span><br><span class="line">    var msgs = window.onMessage[name] || [];</span><br><span class="line">    msgs.forEach(function(msg)&#123;</span><br><span class="line">        msg(param);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>实现2：参考自<a href="https://www.cnblogs.com/LuckyWinty/p/5796190.html" target="_blank" rel="noopener">https://www.cnblogs.com/LuckyWinty/p/5796190.html</a><br>    题目实现以下功能<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 测试1</span><br><span class="line">Event.on(&apos;test&apos;, function (result) &#123;</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;);</span><br><span class="line">Event.on(&apos;test&apos;, function () &#123;</span><br><span class="line">    console.log(&apos;test&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">Event.emit(&apos;test&apos;, &apos;hello world&apos;); // 输出 &apos;hello world&apos; 和 &apos;test&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>代码:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var Event = &#123;</span><br><span class="line">    // 通过on接口监听事件eventName</span><br><span class="line">    // 如果事件eventName被触发，则执行callback回调函数</span><br><span class="line">    on: function (eventName, callback) &#123;</span><br><span class="line">        //我的代码</span><br><span class="line">        if(!this.handles)&#123;</span><br><span class="line">             this.handles=&#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">       if(!this.handles[eventName])&#123;</span><br><span class="line">            this.handles[eventName]=[];</span><br><span class="line">       &#125;</span><br><span class="line">       this.handles[eventName].push(callback);</span><br><span class="line">    &#125;,</span><br><span class="line">    // 触发事件 eventName</span><br><span class="line">    emit: function (eventName) &#123;</span><br><span class="line">        //你的代码</span><br><span class="line">       if(this.handles[arguments[0]])&#123;</span><br><span class="line">           for(var i=0;i&lt;this.handles[arguments[0]].length;i++)&#123;</span><br><span class="line">               this.handles[arguments[0]][i](arguments[1]);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="nisheng.github.com/2018/06/05/发布-订阅-观察者模式/" data-id="cjkxg64470005v7lie4sjxq06" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/05/原型链/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js小代码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/26/charles教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">charles mac版 &amp;&amp; 手机抓包</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码/">代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/观察者模式的两种实现方式/">观察者模式的两种实现方式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/代码/" style="font-size: 20px;">代码</a> <a href="/tags/观察者模式的两种实现方式/" style="font-size: 10px;">观察者模式的两种实现方式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/08/10/前端json生成excel/">js生成excel并导出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/js小代码/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/原型链/">js小代码</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/05/发布-订阅-观察者模式/">发布-订阅 观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/charles教程/">charles mac版 &amp;&amp; 手机抓包</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 倪胜<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
